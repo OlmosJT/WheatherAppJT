@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.ui.screen.MainScreen">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/png_background_image"/>
+
+    <View
+        android:id="@+id/gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue_alpha"/>
+
+    <FrameLayout
+        android:id="@+id/appBar"
+        android:paddingHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_search"/>
+        <!--
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9:12 AM"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"/>
+            -->
+        <DigitalClock
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/btnMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_menu"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@id/textDate"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        tools:text="San Francisco"/>
+
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/dataLayout"
+        app:layout_constraintTop_toBottomOf="@+id/textCity"
+        tools:text="Tuesday, 26 Jul 2022" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/dataLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iconStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            tools:src="@drawable/ic_sunny"/>
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="56sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            tools:text="82,4 F"/>
+
+        <TextView
+            android:id="@+id/dayQuote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            tools:text="It’s a sunny day.\nPerfect for a shopping trip."
+            />
+
+        <FrameLayout
+            android:layout_marginTop="16sp"
+            android:paddingHorizontal="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:drawableStart="@drawable/ic_wind"
+            android:drawablePadding="8dp"
+            android:textSize="12sp"
+            tools:text="3 mph"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="60 %"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/ic_water"
+                android:drawablePadding="8dp"
+                android:textSize="12sp"
+                tools:ignore="UseCompatTextViewDrawableXml" />
+
+        </FrameLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dataLayout"
+        app:layout_constraintVertical_bias="0.35000002"
+        tools:layout_editor_absoluteX="56dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/miniIcon1"
+                android:layout_width="wrap_content"
+                android:layout_height="32sp"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/ic_cloudy" />
+
+            <TextView
+                android:id="@+id/miniTemperature1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:text="82,4°/86°F" />
+
+            <TextView
+                android:id="@+id/miniDay1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Today" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/miniIcon2"
+                android:layout_width="wrap_content"
+                android:layout_height="32sp"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/ic_cloudy" />
+
+            <TextView
+                android:id="@+id/miniTemperature2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:text="82,4°/86°F" />
+
+            <TextView
+                android:id="@+id/miniDay2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Today" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/miniIcon3"
+                android:layout_width="wrap_content"
+                android:layout_height="32sp"
+                android:adjustViewBounds="true"
+                tools:src="@drawable/ic_cloudy" />
+
+            <TextView
+                android:id="@+id/miniTemperature3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="4dp"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:text="82,4°/86°F" />
+
+            <TextView
+                android:id="@+id/miniDay3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="Today" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/btnArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_top"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/notConnected"
+        android:layout_width="150dp"
+        android:layout_height="160dp"
+        android:src="@drawable/ic_not_connected"
+        app:tint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/notConnectedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/noInternet"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/notConnected"
+        app:layout_constraintStart_toStartOf="@id/notConnected"
+        app:layout_constraintEnd_toEndOf="@id/notConnected"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

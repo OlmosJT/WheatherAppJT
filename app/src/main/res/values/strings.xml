@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WheatherAppJT</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="day_quote_sunny">It’s a sunny day.\nPerfect for a shopping trip.</string>
+    <string name="day_quote_rainy">It’s a rainy day.\nFeeling refresh is beast.</string>
+    <string name="day_quote_snowy">It’s a snowy day.\nCold but still warm inside.</string>
+    <string name="noInternet">No connection</string>
+</resources>
